@@ -6,6 +6,8 @@
     "allowJs": true,
     "strict": true,
     "strictPropertyInitialization": false,
+    "noImplicitAny": true,
+    "strictNullChecks": false,
     "moduleResolution": "node",
     "rootDir": "./webapp",
     "outDir": "./dist",
