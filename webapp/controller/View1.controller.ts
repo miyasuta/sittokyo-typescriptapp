@@ -5,9 +5,15 @@ import Controller from "sap/ui/core/mvc/Controller";
 import JSONModel from "sap/ui/model/json/JSONModel";
 
 interface Recipient {
-    recipient: {
-        name: string
-    }
+    name: string,
+    email?: string,
+    phone?: string
+}
+
+const RecipientKeys: {[K in keyof Recipient]: K} = {
+    name: "name",
+    email: "email",
+    phone: "phone"
 }
 
 /**
@@ -17,24 +23,20 @@ export default class View1 extends Controller {
 
     /*eslint-disable @typescript-eslint/no-empty-function*/
     public onInit(): void {
-        const oData: Recipient = {
-            recipient: {
-                name: "World"
-            }
+        const recipient: Recipient = {
+            name: "World"
         }
-        const oModel = new JSONModel(oData);
+        const oModel = new JSONModel(recipient);
         this.getView()!.setModel(oModel);
     }
 
     onShowHello() {
-        // const data: Recipient = (this.getView()!.getModel() as JSONModel).getData();
-        const data: Recipient = (<JSONModel> this.getView()!.getModel()).getData();
-        const name = data.recipient.name;
+        const name = (this.getView().getModel() as JSONModel).getProperty(RecipientKeys.name);
         MessageBox.show(`Hello ${name}`);
     }
 
-    onLiveChange(evt: InputBase$ChangeEvent) {
-        const value = evt.getParameter("value");
+    onLiveChange(event: InputBase$ChangeEvent) {
+        const value = event.getParameter("value");
         MessageToast.show(`Value changed to ${value}`);
     }
 
