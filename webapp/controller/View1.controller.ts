@@ -15,19 +15,16 @@ export default class View1 extends Controller {
         // Viewに登録
     }
 
-    public onShowHello() {
-        // ViewModelからrecipientNameを取得
-        
-        // MessageBoxで表示
-        // MessageBox.show(`Hello ${name}`);
-    }
-
     public onLiveChange() {
         // イベントパラメータ：valueを取得
 
         // MessageToastで表示
         // MessageToast.show(`Value changed to ${value}`);
     }
-
-
+        public onShowHello() {
+        // ViewModelからrecipientNameを取得
+        
+        // MessageBoxで表示
+        // MessageBox.show(`Hello ${name}`);
+    }
 }
