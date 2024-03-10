@@ -19,7 +19,8 @@ export default class View1 extends Controller {
         // MessageToastで表示
         // MessageToast.show(`Value changed to ${value}`);
     }
-        public onShowHello() {
+    
+    public onShowHello() {
         // ViewModelからrecipientNameを取得        
         // MessageBoxで表示
         // MessageBox.show(`Hello ${name}`);
